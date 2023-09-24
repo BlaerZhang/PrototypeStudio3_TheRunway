@@ -23,7 +23,7 @@ public class HoverOutline : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             Transform selection = hit.transform;
-            if (selection.GetComponentInParent<Outline>() != null)
+            if (selection.GetComponentInParent<Outline>() != null && hit.distance <= 1)
             {
                 currentSelection = selection;
                 selection.GetComponentInParent<Outline>().enabled = true;
