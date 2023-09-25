@@ -65,6 +65,22 @@ public class ProbeManager : MonoBehaviour
                     probe.importance = 1;
                 }
                 break;
+            case 3:
+                foreach (var probe in airportProbeList)
+                {
+                    probe.importance = 1;
+                }
+
+                foreach (var probe in sushiProbeList)
+                {
+                    probe.importance = 0;
+                }
+
+                foreach (var probe in runwayProbeList)
+                {
+                    probe.importance = 0;
+                }
+                break;
         }
     }
 }

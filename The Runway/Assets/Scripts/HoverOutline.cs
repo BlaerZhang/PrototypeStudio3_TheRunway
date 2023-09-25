@@ -5,9 +5,10 @@ using UnityEngine;
 public class HoverOutline : MonoBehaviour
 {
     private Transform currentSelection;
+    private GameManager gameManager;
     void Start()
     {
-        
+        gameManager = GetComponent<GameManager>();
     }
     
     void Update()
@@ -20,7 +21,7 @@ public class HoverOutline : MonoBehaviour
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit) && !gameManager.isDialogPlaying)
         {
             Transform selection = hit.transform;
             if (selection.GetComponentInParent<Outline>() != null && hit.distance <= 1)

@@ -68,6 +68,23 @@ public class ColliderManager : MonoBehaviour
                 }
 
                 break;
+            case 3:
+                foreach (var collider in airportColliderList)
+                {
+                    collider.enabled = false;
+                }
+
+                foreach (var collider in sushiColliderList)
+                {
+                    collider.enabled = false;
+                }
+
+                foreach (var collider in runwayColliderList)
+                {
+                    collider.enabled = false;
+                }
+
+                break;
         }
     }
 }
