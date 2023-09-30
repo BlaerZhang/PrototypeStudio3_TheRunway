@@ -6,6 +6,7 @@ public class HoverOutline : MonoBehaviour
 {
     private Transform currentSelection;
     private GameManager gameManager;
+    
     void Start()
     {
         gameManager = GetComponent<GameManager>();
@@ -16,6 +17,7 @@ public class HoverOutline : MonoBehaviour
         if (currentSelection != null)
         {
             currentSelection.GetComponentInParent<Outline>().enabled = false;
+            gameManager.isSelecting = false;
             currentSelection = null;
         }
         
@@ -27,6 +29,7 @@ public class HoverOutline : MonoBehaviour
             if (selection.GetComponentInParent<Outline>() != null && hit.distance <= 1)
             {
                 currentSelection = selection;
+                gameManager.isSelecting = true;
                 selection.GetComponentInParent<Outline>().enabled = true;
             }
         }

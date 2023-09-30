@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,14 @@ public class GameManager : MonoBehaviour
 
     public bool isDialogPlaying;
 
+    public bool isSelecting;
+
     public Animation endingAnimation;
+
+    private void Awake()
+    {
+
+    }
 
     void Start()
     {
@@ -51,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateScene();
 
-        if (Input.GetMouseButtonDown(0) && !isDialogPlaying && currentSceneIndex < 3) 
+        if (Input.GetMouseButtonDown(0) && !isDialogPlaying && currentSceneIndex < 3 && isSelecting) 
         {
             animator.SetTrigger("isMouseClicked");
             Invoke("ChangeCurrentSceneIndex", 2);
